@@ -39,6 +39,7 @@ def test_ISIs_single_spike():
 def test_isi_log_slope_core_exception():
     """Test that _isi_log_slope_core handles np.polyfit raising a LinAlgError."""
     # Mock np.polyfit to raise a LinAlgError
+    tmp = np.polyfit
     np.polyfit = MagicMock(side_effect=np.linalg.LinAlgError("Singular matrix"))
 
     # Call _isi_log_slope_core with some dummy data
@@ -50,7 +51,7 @@ def test_isi_log_slope_core_exception():
     assert result is None
 
     # Reset np.polyfit to its original state
-    np.polyfit = np.lib.polynomial.polyfit
+    np.polyfit = tmp
 
 
 class TestRegularISI:
