@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-test-workflow:
-    uses: BlueBrain/eFEL/.github/workflows/test.yml@master
+    uses: openbraininstitute/eFEL/.github/workflows/test.yml@master
   
   keep-workflow-alive:
     name: Keep workflow alive

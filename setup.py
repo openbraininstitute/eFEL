@@ -3,7 +3,7 @@
 """
 Copyright (c) 2015, EPFL/Blue Brain Project
 
- This file is part of eFEL <https://github.com/BlueBrain/eFEL>
+ This file is part of eFEL <https://github.com/openbraininstitute/eFEL>
 
  This library is free software; you can redistribute it and/or modify it under
  the terms of the GNU Lesser General Public License version 3.0 as published
@@ -102,7 +102,7 @@ setup(
         'extraction',
         'electrophysiology',
         'BlueBrainProject'],
-    url='https://github.com/BlueBrain/eFEL',
+    url='https://github.com/openbraininstitute/eFEL',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',

@@ -9,7 +9,7 @@ on:
 
 jobs:
   call-test-workflow:
-    uses: BlueBrain/eFEL/.github/workflows/test.yml@master
+    uses: openbraininstitute/eFEL/.github/workflows/test.yml@master
 
   tag:
     name: Bump version, push tag and make a release
