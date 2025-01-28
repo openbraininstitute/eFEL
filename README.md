@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/BlueBrain/eFEL/master/docs/source/logo/eFELBanner.png" alt="eFEL banner" />
+<img src="https://raw.githubusercontent.com/openbraininstitute/eFEL/master/docs/source/logo/eFELBanner.png" alt="eFEL banner" />
 
 <table>
 <tr>
@@ -20,7 +20,7 @@
 <tr>
   <td>License</td>
   <td>
-    <a href="https://github.com/BlueBrain/efel/blob/master/LICENSE.txt">
+    <a href="https://github.com/openbraininstitute/efel/blob/master/LICENSE.txt">
     <img src="https://img.shields.io/pypi/l/efel.svg" alt="license" />
     </a>
 </td>
@@ -28,23 +28,23 @@
 <tr>
   <td>Build Status</td>
   <td>
-    <a href="https://github.com/BlueBrain/eFEL/actions">
-    <img src="https://github.com/BlueBrain/eFEL/workflows/Build/badge.svg?branch=master" alt="actions build status" />
+    <a href="https://github.com/openbraininstitute/eFEL/actions">
+    <img src="https://github.com/openbraininstitute/eFEL/workflows/Build/badge.svg" alt="actions build status" />
     </a>
   </td>
 </tr>
 <tr>
   <td>Coverage</td>
   <td>
-    <a href="https://codecov.io/gh/BlueBrain/efel">
-    <img src="https://codecov.io/github/BlueBrain/eFEL/coverage.svg?branch=master" alt="coverage" />
+    <a href="https://codecov.io/gh/openbraininstitute/efel">
+    <img src="https://codecov.io/github/openbraininstitute/eFEL/coverage.svg?branch=master" alt="coverage" />
     </a>
   </td>
 </tr>
 <tr>
     <td>Gitter</td>
     <td>
-        <a href="https://gitter.im/bluebrain/efel">
+        <a href="https://gitter.im/openbraininstitute/efel">
         <img src="https://badges.gitter.im/Join%20Chat.svg" />
     </a>
     </td>
@@ -121,7 +121,7 @@ pip install efel
 If you want to install straight from the github repository you can use
 
 ```bash
-pip install git+git://github.com/BlueBrain/eFEL
+pip install git+git://github.com/openbraininstitute/eFEL
 ```
 
 Quick Start
@@ -139,7 +139,7 @@ To get a list with all the available feature names
 efel.get_feature_names()
 ```
 
-Note that the extra-cellular features, the bpap_attenuation feature and the check_ais_initiation feature are not listed above because they have to be used in a special way, as described [here](https://github.com/BlueBrain/eFEL/blob/master/examples/extracellular/extrafeats_example.ipynb) for extra-cellular features, [here](https://github.com/BlueBrain/eFEL/blob/master/docs/source/eFeatures.rst#bpap_attenuation) for bpap_attenuation feature and [here](https://github.com/BlueBrain/eFEL/blob/master/docs/source/eFeatures.rst#check_ais_initiation) for check_ais_initiation feature.
+Note that the extra-cellular features, the bpap_attenuation feature and the check_ais_initiation feature are not listed above because they have to be used in a special way, as described [here](https://github.com/openbraininstitute/eFEL/blob/master/examples/extracellular/extrafeats_example.ipynb) for extra-cellular features, [here](https://github.com/openbraininstitute/eFEL/blob/master/docs/source/eFeatures.rst#bpap_attenuation) for bpap_attenuation feature and [here](https://github.com/openbraininstitute/eFEL/blob/master/docs/source/eFeatures.rst#check_ais_initiation) for check_ais_initiation feature.
 
 To change the spike detection threshold setting (default is -20 mV)
 
@@ -151,7 +151,7 @@ For a full list of available settings, please refer to the [Setting class](./efe
 The python function to extract features is get_feature_values(...).
 Below is a short example on how to use this function. The code and example
 trace are available
-[here](https://github.com/BlueBrain/eFEL/blob/master/examples/basic/basic_example1.py)
+[here](https://github.com/openbraininstitute/eFEL/blob/master/examples/basic/basic_example1.py)
 
 ```python
 """Basic example 1 for eFEL"""
@@ -239,4 +239,4 @@ This project/research was supported by funding to the Blue Brain Project, a rese
 Lausanne (EPFL), from the Swiss government’s ETH Board of the Swiss Federal Institutes of Technology.
 
 Copyright (c) 2009-2024 Blue Brain Project/EPFL
-
+Copyright (c) 2025 Open Brain Institute
