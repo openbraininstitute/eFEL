@@ -50,7 +50,7 @@ def test_isi_log_slope_core_exception():
     assert result is None
 
     # Reset np.polyfit to its original state
-    np.polyfit = np.lib.polynomial.polyfit
+    np.polyfit = np.polynomial.Polynomial.fit
 
 
 class TestRegularISI:
