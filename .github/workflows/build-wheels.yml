@@ -30,7 +30,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9 # This might need to be dynamic based on the matrix
+          python-version: 3.12 # This might need to be dynamic based on the matrix
       - name: Install cibuildwheel
         run: pip install cibuildwheel
       - name: Build wheels
