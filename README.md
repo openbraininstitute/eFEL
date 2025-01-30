@@ -29,7 +29,7 @@
   <td>Build Status</td>
   <td>
     <a href="https://github.com/openbraininstitute/eFEL/actions">
-    <img src="https://github.com/openbraininstitute/eFEL/workflows/Build/badge.svg" alt="actions build status" />
+    <img src="https://github.com/openbraininstitute/eFEL/workflows/Publish/badge.svg" alt="actions build status" />
     </a>
   </td>
 </tr>
