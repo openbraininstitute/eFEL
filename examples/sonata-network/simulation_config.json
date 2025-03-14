@@ -25,6 +25,7 @@
         "delay": 20.0,
         "duration": 70.0,
         "percent_start": 100,
+        "percent_end": 100,
         "node_set": "dSTUT_mini"
       }
     },
