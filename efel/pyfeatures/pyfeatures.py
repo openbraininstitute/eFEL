@@ -402,7 +402,13 @@ def activation_time_constant() -> np.ndarray | None:
             exp_fit,
             time_interval,
             voltage_interval,
-            p0=(1., voltage_interval[-1], voltage_interval[0] - voltage_interval[-1]),
+            p0=(
+                1.,
+                voltage_interval[-1],
+                # use np.min(voltage_interval) instead of voltage_interval[0]
+                # because voltage_interval[0] can be higher than min if there is an artefact
+                np.min(voltage_interval) - voltage_interval[-1]
+            ),
             # positive tau, negative A1
             bounds=((0, -np.inf, -np.inf), (np.inf, np.inf, 0)),
             nan_policy="omit",
