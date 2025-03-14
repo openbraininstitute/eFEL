@@ -405,8 +405,8 @@ def activation_time_constant() -> np.ndarray | None:
             p0=(
                 1.,
                 voltage_interval[-1],
-                # use np.min(voltage_interval) instead of voltage_interval[0]
-                # because voltage_interval[0] can be higher than min if there is an artefact
+                # use np.min(voltage_interval) instead of voltage_interval[0] because
+                # voltage_interval[0] can be higher than min if there is an artefact
                 np.min(voltage_interval) - voltage_interval[-1]
             ),
             # positive tau, negative A1
