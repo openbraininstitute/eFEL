@@ -2574,8 +2574,10 @@ See voltage clamp example for more details.
 
     # keep trace going from stim_start to voltage max
     max_idx = np.argmax(voltage_interval)
-    time_interval = time_interval[:max_idx + 1]
-    voltage_interval = voltage_interval[:max_idx + 1]
+    min_idx = np.argmin(voltage_interval[:max_idx + 1])
+    t_duration = time_interval[max_idx] - time_interval[min_idx]
+    time_interval = time_interval[min_idx:max_idx + 1]
+    voltage_interval = voltage_interval[min_idx:max_idx + 1]
 
     # correct time so that it starts from 0
     time_interval -= time_interval[0]
@@ -2585,11 +2587,14 @@ See voltage clamp example for more details.
         exp_fit,
         time_interval,
         voltage_interval,
-        p0=(1., voltage_interval[-1], voltage_interval[0] - voltage_interval[-1]),
+        p0=(1., voltage_interval[-1], np.min(voltage_interval) - voltage_interval[-1]),
         bounds=((0, -np.inf, -np.inf), (np.inf, np.inf, 0)),  # positive tau, negative A1
         nan_policy="omit",
     )
-    time_constant =  np.array([abs(popt[0])])
+    time_constant = np.array([abs(popt[0])])
+    # correction for very large values dur to noisy data
+    if abs(popt[0]) > 10 * t_duration:
+        time_constant = np.array([t_duration])
 
 deactivation_time_constant
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
