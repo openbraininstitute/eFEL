@@ -427,7 +427,7 @@ def activation_time_constant() -> np.ndarray | None:
 
     if abs(popt[0]) > 10 * t_duration:
         logger.debug(
-            "Activation time constant: unexpected time contant value (%s) "
+            "Activation time constant: unexpected time constant value (%s) "
             "for smaller interval duration (%s), returning interval duration",
             abs(popt[0]),
             t_duration,
