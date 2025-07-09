@@ -27,10 +27,14 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 from efel.pyfeatures.cppfeature_access import _get_cpp_data, get_cpp_feature
 from efel.pyfeatures.isi import *
+import logging
 from typing_extensions import deprecated
 
 import numpy as np
 from numpy.fft import *
+
+
+logger = logging.getLogger(__name__)
 
 all_pyfeatures = [
     'voltage',
@@ -390,8 +394,13 @@ def activation_time_constant() -> np.ndarray | None:
 
     # keep trace going from stim_start to voltage max
     max_idx = np.argmax(voltage_interval)
-    time_interval = time_interval[:max_idx + 1]
-    voltage_interval = voltage_interval[:max_idx + 1]
+    min_idx = np.argmin(voltage_interval[:max_idx + 1])
+    t_duration = time_interval[max_idx] - time_interval[min_idx]
+    if t_duration == 0:
+        logger.debug("Activation time constant: interval duration is 0, returning [0]")
+        return np.array([0.0])
+    time_interval = time_interval[min_idx:max_idx + 1]
+    voltage_interval = voltage_interval[min_idx:max_idx + 1]
 
     # correct time so that it starts from 0
     time_interval -= time_interval[0]
@@ -415,6 +424,15 @@ def activation_time_constant() -> np.ndarray | None:
         )
     except (ValueError, RuntimeError):
         return None
+
+    if abs(popt[0]) > 10 * t_duration:
+        logger.debug(
+            "Activation time constant: unexpected time constant value (%s) "
+            "for smaller interval duration (%s), returning interval duration",
+            abs(popt[0]),
+            t_duration,
+        )
+        return np.array([t_duration])
 
     return np.array([abs(popt[0])])
 
