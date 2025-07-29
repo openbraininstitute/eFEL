@@ -163,6 +163,7 @@ def test_str_method():
         "ignore_first_ISI: True\n"
         "impedance_max_freq: 50.0\n"
         "AP_phaseslope_range: 2\n"
-        "inactivation_tc_end_skip: 10"
+        "inactivation_tc_end_skip: 10\n"
+        "depol_block_min_duration: 50.0"
     )
     assert str(settings) == expected_output
