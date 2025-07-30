@@ -243,7 +243,7 @@ def depol_block():
     else:
         depol_block_threshold = -50
 
-    block_min_duration = 50.0  # ms
+    block_min_duration = _get_cpp_data("depol_block_min_duration")  # ms
     long_hyperpol_threshold = -75.0  # mV
 
     bool_voltage = np.array(voltage > depol_block_threshold, dtype=int)
