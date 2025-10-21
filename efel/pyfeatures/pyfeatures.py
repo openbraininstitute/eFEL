@@ -388,7 +388,8 @@ def activation_time_constant() -> np.ndarray | None:
 
     # isolate stimulus interval
     stim_start_idx = np.flatnonzero(time >= stim_start)[0]
-    stim_end_idx = np.flatnonzero(time >= stim_end)[0]
+    stim_end_idx_tmp = np.flatnonzero(time >= stim_end)
+    stim_end_idx = stim_end_idx_tmp[0] if stim_end_idx_tmp.size > 0 else len(time)
     time_interval = time[stim_start_idx:stim_end_idx]
     voltage_interval = voltage[stim_start_idx:stim_end_idx]
 
@@ -495,7 +496,8 @@ def inactivation_time_constant() -> np.ndarray | None:
 
     # isolate stimulus interval
     stim_start_idx = np.flatnonzero(time >= stim_start)[0]
-    stim_end_idx = np.flatnonzero(time >= stim_end)[0]
+    stim_end_idx_tmp = np.flatnonzero(time >= stim_end)
+    stim_end_idx = stim_end_idx_tmp[0] if stim_end_idx_tmp.size > 0 else len(time)
     time_interval = time[stim_start_idx:stim_end_idx - end_skip]
     voltage_interval = voltage[stim_start_idx:stim_end_idx - end_skip]
 
