@@ -67,12 +67,12 @@ static PyObject* CppCoreInitialize(PyObject* self, PyObject* args) {
   }
 
   Initialize(depfilename, outfilename);
-  return Py_BuildValue("");
+  Py_RETURN_NONE;
 }
 
 static PyObject* CppCoreClear(PyObject* self, PyObject* args) {
   Clear();
-  return Py_BuildValue("");
+  Py_RETURN_NONE;
 }
 
 static vector<int> PyList_to_vectorint(PyObject* input) {
@@ -274,7 +274,7 @@ static PyObject* getFeatureNames(PyObject* self, PyObject* args) {
   pFeature->get_feature_names(feature_names);
   PyList_from_vectorstring(feature_names, py_feature_names);
 
-  return Py_BuildValue("");
+  Py_RETURN_NONE;
 }
 
 
