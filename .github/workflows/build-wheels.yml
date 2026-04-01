@@ -11,15 +11,21 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-24.04, macos-14, windows-latest]
-        python: [cp39, cp310, cp311, cp312, cp313, cp314]
+        python: [cp310, cp311, cp312, cp313, cp314]
         arch: [x86_64, amd64, arm64]
         exclude:
           - os: macos-14
             arch: amd64
+          - os: macos-14
+            arch: x86_64
           - os: ubuntu-24.04
             arch: amd64
+          - os: ubuntu-24.04
+            arch: arm64
           - os: windows-latest
             arch: x86_64
+          - os: windows-latest
+            arch: arm64
     env:
       CIBW_BUILD: ${{ matrix.python }}*${{ matrix.arch }}
       CIBW_SKIP: "*-musllinux_*"
@@ -30,7 +36,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.12 # This might need to be dynamic based on the matrix
+          python-version: 3.12
       - name: Install cibuildwheel
         run: pip install cibuildwheel
       - name: Build wheels

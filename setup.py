@@ -78,7 +78,7 @@ setup(
     name="efel",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-    python_requires='>=3.9',
+    python_requires='>=3.10',
     install_requires=[
         'numpy>=1.6',
         'neo>=0.14.0',
@@ -91,6 +91,10 @@ setup(
         'efel.pyfeatures',
         'efel.units'
     ],
+    extras_require={
+        'neo': ['neo>=0.14.0'],
+        'h5py': ['h5py'],
+    },
     author="Open Brain Institute",
     maintainer="OBI Maintainer",
     maintainer_email="support@openbraininstitute.org",
@@ -111,7 +115,6 @@ setup(
         'License v3 (LGPLv3)',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
