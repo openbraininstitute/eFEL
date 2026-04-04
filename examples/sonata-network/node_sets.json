@@ -1,0 +1,13 @@
+{
+  "Default: All Biophysical Neurons": {
+    "population": "S1nonbarrel_neurons",
+    "node_id": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}

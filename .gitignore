@@ -29,4 +29,7 @@ lib
 fllog.txt
 *.DS_Store
 pyvenv.cfg
-x86_64
+x86_64/
+arm64/
+examples/sonata-network/output/
+examples/sonata-network/nbS1-O1-sSub-post-dim5-nCN-HEX0-L1-01/
