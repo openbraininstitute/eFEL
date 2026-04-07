@@ -25,7 +25,7 @@
     "AP2_peak": "mV",
     "AP2_width": "ms",
     "AP_Amplitude": "mV",
-    "AP_Amplitude_change": "constant",
+    "AP_amplitude_change": "constant",
     "AP_amplitude_diff": "mV",
     "AP_amplitude_from_voltagebase": "mV",
     "AP_begin_time": "ms",
