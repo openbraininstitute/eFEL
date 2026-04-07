@@ -67,12 +67,12 @@ static PyObject* CppCoreInitialize(PyObject* self, PyObject* args) {
   }
 
   Initialize(depfilename, outfilename);
-  return Py_BuildValue("");
+  Py_RETURN_NONE;
 }
 
 static PyObject* CppCoreClear(PyObject* self, PyObject* args) {
   Clear();
-  return Py_BuildValue("");
+  Py_RETURN_NONE;
 }
 
 static vector<int> PyList_to_vectorint(PyObject* input) {
@@ -82,7 +82,12 @@ static vector<int> PyList_to_vectorint(PyObject* input) {
 
   list_size = PyList_Size(input);
   for (index = 0; index < list_size; index++) {
-    result_vector.push_back(PyLong_AsLong(PyList_GetItem(input, index)));
+    PyObject* item = PyList_GetItem(input, index);
+    long val = PyLong_AsLong(item);
+    if (val == -1 && PyErr_Occurred()) {
+      return result_vector;
+    }
+    result_vector.push_back(static_cast<int>(val));
   }
   return result_vector;
 }
@@ -104,7 +109,13 @@ static vector<double> PyList_to_vectordouble(PyObject* input) {
 
   list_size = PyList_Size(input);
   for (index = 0; index < list_size; index++) {
-    result_vector.push_back(PyFloat_AsDouble(PyList_GetItem(input, index)));
+    PyObject* item = PyList_GetItem(input, index);
+    PyObject* flt = PyNumber_Float(item);
+    if (flt == NULL) {
+      return result_vector;
+    }
+    result_vector.push_back(PyFloat_AsDouble(flt));
+    Py_DECREF(flt);
   }
   return result_vector;
 }
@@ -242,7 +253,7 @@ static PyObject* setfeaturedouble(PyObject* self, PyObject* args) {
   values = PyList_to_vectordouble(py_values);
   return_value = pFeature->setFeatureDouble(string(feature_name), values);
 
-  return Py_BuildValue("f", return_value);
+  return Py_BuildValue("i", return_value);
 }
 
 static PyObject* getfeaturedouble(PyObject* self, PyObject* args) {
@@ -274,7 +285,7 @@ static PyObject* getFeatureNames(PyObject* self, PyObject* args) {
   pFeature->get_feature_names(feature_names);
   PyList_from_vectorstring(feature_names, py_feature_names);
 
-  return Py_BuildValue("");
+  Py_RETURN_NONE;
 }
 
 

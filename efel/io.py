@@ -199,8 +199,9 @@ def load_neo_file(file_name: str, stim_start=None, stim_end=None, **kwargs) -> l
             for sig in seg.analogsignals:
                 if 'V' in sig.units.dimensionality.string:
                     trace = {
-                        'T': (sig.times - sig.times[0]).rescale('ms').magnitude,
-                        'V': sig.rescale('mV').magnitude,
+                        'T': (sig.times - sig.times[0]).rescale(
+                            'ms').magnitude.flatten(),
+                        'V': sig.rescale('mV').magnitude.flatten(),
                         'stim_start': [stim_start],
                         'stim_end': [stim_end]
                     }

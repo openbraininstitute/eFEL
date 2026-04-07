@@ -85,7 +85,7 @@ For detailed citation information, please refer to the [CITATION.cff](./CITATION
 Requirements
 ============
 
-* [Python 3.9+](https://www.python.org/downloads/)
+* [Python 3.10+](https://www.python.org/downloads/)
 * [Pip](https://pip.pypa.io) (installed by default in newer versions of Python)
 * C++ compiler that can be used by pip
 * [Numpy](http://www.numpy.org) (will be installed automatically by pip)

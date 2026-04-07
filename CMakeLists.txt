@@ -15,7 +15,7 @@
 # along with this library; if not, write to the Free Software Foundation, Inc., 
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.                              
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.12)
 project("efel")
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake)  
@@ -36,19 +36,5 @@ exec_program(
     OUTPUT_VARIABLE EFEL_VERSION)                                 
                                                                                 
 message("Working with efel version: ${EFEL_VERSION} (Main version: ${EFEL_MAINVERSION})")
-
-if (BGQ)
-    set(CMAKE_CXX_COMPILER mpixlcxx)
-    set(CMAKE_C_COMPILER mpixlc)
-    set(CMAKE_C_FLAGS "-qpic -qnostaticlink -O3 -qarch=qp -q64")
-    set(CMAKE_CXX_FLAGS "-qpic -qnostaticlink -O3 -qarch=qp -q64")
-elseif (LBGQ)
-    set(CMAKE_CXX_COMPILER mpixlcxx)
-    set(CMAKE_C_COMPILER mpixlc)
-    set(CMAKE_C_FLAGS 
-        "-qpic -qnohot -qstrict -qnostaticlink -O3 -qarch=qp -q64")
-    set(CMAKE_CXX_FLAGS 
-        "-qpic -qnohot -qstrict -qnostaticlink -O3 -qarch=qp -q64")
-endif (BGQ)
 
 add_subdirectory("efel")

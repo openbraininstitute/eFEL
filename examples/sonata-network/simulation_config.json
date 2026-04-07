@@ -1,44 +1,53 @@
 {
-    "manifest": {
-      "$OUTPUT_DIR": "."
+  "version": 2.4,
+  "target_simulator": "NEURON",
+  "run": {
+    "dt": 0.025,
+    "random_seed": 1,
+    "tstop": 1000.0
+  },
+  "conditions": {
+    "extracellular_calcium": 1.1,
+    "v_init": -80.0,
+    "spike_location": "soma"
+  },
+  "output": {
+    "output_dir": "output",
+    "spikes_file": "spikes.h5"
+  },
+  "network": "nbS1-O1-sSub-post-dim5-nCN-HEX0-L1-01/circuit_config.json",
+  "node_set": "Default: All Biophysical Neurons",
+  "inputs": {
+    "Stimulus 1_0": {
+      "delay": 200.0,
+      "duration": 600.0,
+      "node_set": "Default: All Biophysical Neurons",
+      "module": "relative_linear",
+      "input_type": "current_clamp",
+      "percent_start": 150.0,
+      "represents_physical_electrode": false
     },
-    "run": {
-      "tstop": 100.0,
-      "dt": 0.025,
-      "random_seed": 1
-    },
-    "conditions": {
-      "v_init": -65
-    },
-    "target_simulator": "NEURON",
-    "network": "./O1/circuit_config.json",
-    "node_set": "dSTUT_mini",
-    "output": {
-      "output_dir": "$OUTPUT_DIR/output_sonata",
-      "spikes_file": "out.h5",
-      "spikes_sort_order": "by_time"
-    },
-    "inputs": {
-      "continuous_linear": {
-        "input_type": "current_clamp",
-        "module": "relative_linear",
-        "delay": 20.0,
-        "duration": 70.0,
-        "percent_start": 100,
-        "percent_end": 100,
-        "node_set": "dSTUT_mini"
-      }
-    },
-    "reports": {
-      "soma": {
-        "cells": "dSTUT_mini",
-        "variable_name": "v",
-        "type": "compartment",
-        "dt": 1.0,
-        "start_time": 0.0,
-        "end_time": 20.0,
-        "sections": "soma",
-        "compartments": "center"
-      }
+    "Stimulus 2_0": {
+      "delay": 0.0,
+      "duration": 1000.0,
+      "node_set": "Default: All Biophysical Neurons",
+      "module": "hyperpolarizing",
+      "input_type": "current_clamp",
+      "represents_physical_electrode": false
     }
-  }
+  },
+  "reports": {
+    "Recording 0": {
+      "cells": "Default: All Biophysical Neurons",
+      "sections": "soma",
+      "type": "compartment",
+      "compartments": "center",
+      "variable_name": "v",
+      "unit": "mV",
+      "dt": 0.1,
+      "start_time": 0.0,
+      "end_time": 1000.0
+    }
+  },
+  "node_sets_file": "node_sets.json"
+}

@@ -1243,7 +1243,7 @@ mean_AP_amplitude
 
     mean_AP_amplitude = numpy.mean(AP_amplitude)
 
-AP_Amplitude_change
+AP_amplitude_change
 ~~~~~~~~~~~~~~~~~~~
 
 `SpikeShape`_ : Difference of the amplitudes of the second and the first action potential
