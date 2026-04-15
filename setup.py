@@ -85,7 +85,6 @@ setup(
         'pynwb>=2.6.0',
         'typing-extensions>=4.8.0',
         'scipy>=1.12.0',
-        'pandas>=2.3.3'
     ],
     packages=[
         'efel',
