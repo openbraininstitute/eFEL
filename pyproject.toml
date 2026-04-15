@@ -13,7 +13,7 @@ exclude_lines = [
 filterwarnings = ["ignore::DeprecationWarning"]
 
 [tool.cibuildwheel]
-test-requires = "pytest neo[neomatlabio]>=0.14.0 pytest-xdist>=3.3.1"
+test-requires = "pytest neo[neomatlabio]>=0.14.0 pytest-xdist>=3.3.1 h5py"
 test-command = "pytest -sx -n auto {project}/tests"
 
 [tool.cibuildwheel.windows]
