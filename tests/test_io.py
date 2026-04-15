@@ -274,6 +274,7 @@ def test_load_neo_file_stim_time_events_incomplete():
 
 def test_load_neo_file_nwb():
     """Test loading of data from an NWB file."""
+    pytest.importorskip("pynwb")
     import efel
     import neo
 
@@ -331,6 +332,7 @@ def load_data(filename):
 @pytest.mark.parametrize("index", [2, 3, 5])
 def test_save_feature(filename, index):
     """Test saving of the features to file."""
+    pytest.importorskip("pynwb")
     import efel
     blocks = efel.io.load_neo_file(nwb1_filename, 250, 600)
     trace = blocks[0][0][index]

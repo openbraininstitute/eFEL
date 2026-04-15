@@ -92,6 +92,7 @@ setup(
     ],
     extras_require={
         'neo': ['neo>=0.14.0'],
+        'nwb': ['pynwb>=2.6.0'],
         'h5py': ['h5py'],
     },
     author="Open Brain Institute",
