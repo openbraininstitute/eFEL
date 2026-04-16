@@ -82,7 +82,6 @@ setup(
     install_requires=[
         'numpy>=1.6',
         'neo>=0.14.0',
-        'pynwb>=2.6.0',
         'typing-extensions>=4.8.0',
         'scipy>=1.12.0',
     ],
@@ -93,6 +92,7 @@ setup(
     ],
     extras_require={
         'neo': ['neo>=0.14.0'],
+        'nwb': ['pynwb>=2.6.0'],
         'h5py': ['h5py'],
     },
     author="Open Brain Institute",
