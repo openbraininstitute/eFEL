@@ -52,8 +52,8 @@
 <tr>
     <td>Citation</td>
     <td>
-        <a href="https://doi.org/10.5281/zenodo.593869">
-        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.593869.svg" alt="DOI"/>
+        <a href="https://doi.org/10.5281/zenodo.19604220">
+        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19604220.svg" alt="DOI"/>
     </a>
     </td>
 </tr>
