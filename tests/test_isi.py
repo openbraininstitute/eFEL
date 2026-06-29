@@ -14,7 +14,7 @@ def generate_spike_data(
     voltage = np.full(duration, baseline)
     # Add spikes to the voltage array
     for i in range(0, duration, spike_interval):
-        voltage[i: i + spike_duration] = spike_value
+        voltage[i: i + spike_duration] = spike_value  # type: ignore[index]
     time = np.arange(duration)
     return time, voltage
 
