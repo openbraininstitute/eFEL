@@ -30,7 +30,7 @@ jobs:
       CIBW_BUILD: ${{ matrix.python }}*${{ matrix.arch }}
       CIBW_SKIP: "*-musllinux_*"
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Set up Python
