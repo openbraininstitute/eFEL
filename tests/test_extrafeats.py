@@ -11,8 +11,8 @@ testdata_dir = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), 'testdata', 'extrafeats'
 )
 waveforms_fpath = os.path.join(testdata_dir, 'mean_waveforms.dat')
-waveforms = numpy.loadtxt(waveforms_fpath)
-waveform = numpy.array([waveforms[0]])
+waveforms = numpy.loadtxt(waveforms_fpath)  # type: ignore[assignment]
+waveform = numpy.array([waveforms[0]])  # type: ignore[index]
 sampling_freq = 10000
 
 

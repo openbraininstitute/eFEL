@@ -35,7 +35,7 @@ def load_ascii_input(
     """
     file_path = Path(file_path)
     data = np.loadtxt(file_path, delimiter=delimiter)
-    time, voltage = data[:, 0], data[:, 1]
+    time, voltage = data[:, 0], data[:, 1]  # type: ignore[index]
     return time, voltage
 
 

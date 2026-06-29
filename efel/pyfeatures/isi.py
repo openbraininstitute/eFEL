@@ -124,11 +124,12 @@ def _isi_log_slope_core(
         x = np.log(x)
 
     try:
-        slope, _ = np.polyfit(x, log_isi_values, 1)
+        coeffs = np.polyfit(x, log_isi_values, 1)  # type: ignore[misc]
     except (np.linalg.LinAlgError, SystemError) as e:
         warnings.warn(f"Error in polyfit: {e}")
         return None
 
+    slope = coeffs[0]  # type: ignore[index]
     return np.array([slope])
 
 
@@ -234,26 +235,29 @@ def burst_mean_freq() -> np.ndarray | None:
     if burst_isi_idx is None or peak_time is None:
         return None
 
-    burst_mean_freq = []
+    burst_mean_freq_list: list[float] = []
     burst_index_tmp = burst_isi_idx
-    burst_index = np.insert(
+    burst_index = np.insert(  # type: ignore[call-overload]
         burst_index_tmp, burst_index_tmp.size, len(peak_time) - 1
     )
+    assert burst_index is not None
     burst_index = burst_index.astype(int)
 
     # 1st burst
-    span = peak_time[burst_index[0]] - peak_time[0]
+    span = peak_time[burst_index[0]] - peak_time[0]  # type: ignore[index]
     # + 1 because 1st ISI is ignored
-    N_peaks = burst_index[0] + 1
-    burst_mean_freq.append(N_peaks * 1000 / span)
+    N_peaks = burst_index[0] + 1  # type: ignore[index]
+    burst_mean_freq_list.append(N_peaks * 1000 / span)
 
     for i, burst_idx in enumerate(burst_index[:-1]):
-        if burst_index[i + 1] - burst_idx != 1:
-            span = peak_time[burst_index[i + 1]] - peak_time[burst_idx + 1]
-            N_peaks = burst_index[i + 1] - burst_idx
-            burst_mean_freq.append(N_peaks * 1000 / span)
+        if burst_index[i + 1] - burst_idx != 1:  # type: ignore[index]
+            span = (  # type: ignore[index]
+                peak_time[burst_index[i + 1]] - peak_time[burst_idx + 1]
+            )
+            N_peaks = burst_index[i + 1] - burst_idx  # type: ignore[index]
+            burst_mean_freq_list.append(N_peaks * 1000 / span)
 
-    return np.array(burst_mean_freq)
+    return np.array(burst_mean_freq_list)
 
 
 def interburst_voltage() -> np.ndarray | None:
@@ -269,11 +273,11 @@ def interburst_voltage() -> np.ndarray | None:
     for idx in burst_isi_idx:
         ts_idx = peak_idx[idx]
         t_start = t[ts_idx] + 5
-        start_idx = np.argwhere(t < t_start)[-1][0]
+        start_idx = np.argwhere(t < t_start)[-1][0]  # type: ignore[index]
 
         te_idx = peak_idx[idx + 1]
         t_end = t[te_idx] - 5
-        end_idx = np.argwhere(t > t_end)[0][0]
+        end_idx = np.argwhere(t > t_end)[0][0]  # type: ignore[index]
 
         interburst_voltage.append(np.mean(v[start_idx:end_idx + 1]))
 

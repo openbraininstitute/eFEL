@@ -25,6 +25,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
+from typing import cast
 from efel.pyfeatures.cppfeature_access import _get_cpp_data, get_cpp_feature
 from efel.pyfeatures.isi import *
 import logging
@@ -133,7 +134,10 @@ def trace_check() -> np.ndarray | None:
     if peak_times is None:  # If no spikes, then no problem
         return np.array([0])
     # Check if there are no spikes or if all spikes are within the stimulus interval
-    if np.all((peak_times >= stim_start) & (peak_times <= stim_end * 1.05)):
+    if np.all(  # type: ignore[operator]
+        (peak_times >= stim_start)  # type: ignore[operator]
+        & (peak_times <= stim_end * 1.05)
+    ):
         return np.array([0])  # 0 if trace is valid
     else:
         return None  # None if trace is invalid due to spike outside stimulus interval
@@ -174,8 +178,10 @@ def impedance():
             Z = fft_volt / fft_cur
             norm_Z = abs(Z) / max(abs(Z))
             select_idxs = np.swapaxes(
-                np.argwhere((freq > 0) & (freq <= Z_max_freq)), 0, 1
-            )[0]
+                np.argwhere(  # type: ignore[operator]
+                    (freq > 0) & (freq <= Z_max_freq)
+                ), 0, 1
+            )[0]  # type: ignore[index]
             smooth_Z = gaussian_filter1d(norm_Z[select_idxs], 10)
             ind_max = np.argmax(smooth_Z)
             return np.array([freq[select_idxs][ind_max]])
@@ -268,15 +274,19 @@ def depol_block():
     bool_voltage = np.array(voltage > long_hyperpol_threshold, dtype=int)
     up_indexes = np.flatnonzero(np.diff(bool_voltage) == 1)
     down_indexes = np.flatnonzero(np.diff(bool_voltage) == -1)
-    down_indexes = down_indexes[(down_indexes > stim_start_idx) & (
-        down_indexes < stim_end_idx)]
+    down_indexes = down_indexes[  # type: ignore[operator]
+        (down_indexes > stim_start_idx) & (down_indexes < stim_end_idx)
+    ]
     if len(down_indexes) != 0:
-        up_indexes = up_indexes[(up_indexes > stim_start_idx) & (
-            up_indexes < stim_end_idx) & (up_indexes > down_indexes[0])]
+        up_indexes = up_indexes[  # type: ignore[operator]
+            (up_indexes > stim_start_idx)
+            & (up_indexes < stim_end_idx)
+            & (up_indexes > down_indexes[0])
+        ]
         if len(up_indexes) < len(down_indexes):
             up_indexes = np.append(up_indexes, [stim_end_idx])
         max_hyperpol_duration = np.max(
-            [time[up_indexes[k]] - time[down_idx] for k,
+            [time[up_indexes[k]] - time[down_idx] for k,  # type: ignore[index]
              down_idx in enumerate(down_indexes)])
 
         # if it stays in hyperpolarized stage for more than min_duration,
@@ -387,8 +397,10 @@ def activation_time_constant() -> np.ndarray | None:
         return None
 
     # isolate stimulus interval
-    stim_start_idx = np.flatnonzero(time >= stim_start)[0]
-    stim_end_idx_tmp = np.flatnonzero(time >= stim_end)
+    stim_start_idx = np.flatnonzero(time >= stim_start)[0]  # type: ignore[index]
+    stim_end_idx_tmp = np.flatnonzero(time >= stim_end)  # type: ignore
+    assert stim_end_idx_tmp is not None
+    stim_end_idx_tmp = cast(np.ndarray, stim_end_idx_tmp)
     stim_end_idx = stim_end_idx_tmp[0] if stim_end_idx_tmp.size > 0 else len(time)
     time_interval = time[stim_start_idx:stim_end_idx]
     voltage_interval = voltage[stim_start_idx:stim_end_idx]
@@ -452,7 +464,9 @@ def deactivation_time_constant() -> np.ndarray | None:
         return None
 
     # isolate stimulus interval
-    interval_indices = np.where((time >= stim_start) & (time < stim_end))
+    interval_indices = np.where(
+        (time >= stim_start) & (time < stim_end)  # type: ignore[operator]
+    )
     time_interval = time[interval_indices]
     voltage_interval = voltage[interval_indices]
 
@@ -495,8 +509,10 @@ def inactivation_time_constant() -> np.ndarray | None:
         return None
 
     # isolate stimulus interval
-    stim_start_idx = np.flatnonzero(time >= stim_start)[0]
-    stim_end_idx_tmp = np.flatnonzero(time >= stim_end)
+    stim_start_idx = np.flatnonzero(time >= stim_start)[0]  # type: ignore[index]
+    stim_end_idx_tmp = np.flatnonzero(time >= stim_end)  # type: ignore
+    assert stim_end_idx_tmp is not None
+    stim_end_idx_tmp = cast(np.ndarray, stim_end_idx_tmp)
     stim_end_idx = stim_end_idx_tmp[0] if stim_end_idx_tmp.size > 0 else len(time)
     time_interval = time[stim_start_idx:stim_end_idx - end_skip]
     voltage_interval = voltage[stim_start_idx:stim_end_idx - end_skip]
