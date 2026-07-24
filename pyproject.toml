@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=64", "versioneer[toml]>=0.29"]
+build-backend = "setuptools.build_meta"
+
 [tool.coverage.run]
 omit = [
     "efel/_version.py"
