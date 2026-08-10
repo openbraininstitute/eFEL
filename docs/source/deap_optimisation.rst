@@ -17,12 +17,12 @@ becomes a matter of only adding a couple of lines to your
 thanks to `pyScoop <http://pyscoop.org>`_.
 
 In this example we will assume you have installed
-`eFEL <https://github.com/BlueBrain/eFEL>`_,
+`eFEL <https://github.com/openbraininstitute/eFEL>`_,
 `pyNeuron <http://www.neuron.yale.edu/neuron/download/compile_linux#otheroptions>`_
 and `DEAP <https://github.com/DEAP/deap>`_
 
 The code of the example below can be downloaded from
-`here <https://github.com/BlueBrain/eFEL/tree/master/examples/deap>`_
+`here <https://github.com/openbraininstitute/eFEL/tree/master/examples/deap>`_
 
 To keep the example simple, let's start from a passive single compartmental
 model. The parameters to fit will be the conductance and reversal potential

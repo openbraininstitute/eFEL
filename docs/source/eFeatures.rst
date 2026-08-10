@@ -2952,11 +2952,11 @@ positive signal-amplitude value on the largest-amplitude channel.
 
     return relative_peaks
 
-.. _SpikeEvent: https://github.com/BlueBrain/eFEL/blob/master/efel/cppcore/SpikeEvent.cpp
-.. _SpikeShape: https://github.com/BlueBrain/eFEL/blob/master/efel/cppcore/SpikeShape.cpp
-.. _Subthreshold: https://github.com/BlueBrain/eFEL/blob/master/efel/cppcore/Subthreshold.cpp
-.. _Python efeature: https://github.com/BlueBrain/eFEL/blob/master/efel/pyfeatures/pyfeatures.py
-.. _ISI Python efeature: https://github.com/BlueBrain/eFEL/blob/master/efel/pyfeatures/isi.py
-.. _Extracellular: https://github.com/BlueBrain/eFEL/blob/master/efel/pyfeatures/extrafeats.py
-.. _Multitrace Python efeature: https://github.com/BlueBrain/eFEL/blob/master/efel/pyfeatures/multitrace.py
-.. _Validation Python efeature: https://github.com/BlueBrain/eFEL/blob/master/efel/pyfeatures/validation.py
+.. _SpikeEvent: https://github.com/openbraininstitute/eFEL/blob/master/efel/cppcore/SpikeEvent.cpp
+.. _SpikeShape: https://github.com/openbraininstitute/eFEL/blob/master/efel/cppcore/SpikeShape.cpp
+.. _Subthreshold: https://github.com/openbraininstitute/eFEL/blob/master/efel/cppcore/Subthreshold.cpp
+.. _Python efeature: https://github.com/openbraininstitute/eFEL/blob/master/efel/pyfeatures/pyfeatures.py
+.. _ISI Python efeature: https://github.com/openbraininstitute/eFEL/blob/master/efel/pyfeatures/isi.py
+.. _Extracellular: https://github.com/openbraininstitute/eFEL/blob/master/efel/pyfeatures/extrafeats.py
+.. _Multitrace Python efeature: https://github.com/openbraininstitute/eFEL/blob/master/efel/pyfeatures/multitrace.py
+.. _Validation Python efeature: https://github.com/openbraininstitute/eFEL/blob/master/efel/pyfeatures/validation.py
