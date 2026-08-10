@@ -52,8 +52,8 @@
 <tr>
     <td>Citation</td>
     <td>
-        <a href="https://doi.org/10.5281/zenodo.19604220">
-        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19604220.svg" alt="DOI"/>
+        <a href="https://doi.org/10.1093/bioinformatics/btag328">
+        <img src="https://img.shields.io/badge/DOI-10.1093%2Fbioinformatics%2Fbtag328-blue" alt="DOI"/>
     </a>
     </td>
 </tr>
@@ -78,9 +78,7 @@ library can be found [here](http://efel.readthedocs.io/en/latest/installation.ht
 
 How to cite
 ===========
-When you use this eFEL software for your research, we ask you to cite it (this includes poster presentations) by referring to the "Cite this repository" button at the top of the repository page to get various citation formats, including APA and BibTeX.
-
-For detailed citation information, please refer to the [CITATION.cff](./CITATION.cff) file.
+When you use this eFEL software for your research, we ask you to cite it (this includes poster presentations) by referring to the following paper:
 
 Darshan Mandge, Anıl Tuncel, Aurélien Jaquier, Ilkan Kilic, Tanguy Damart, Henry Markram, Werner Van Geit, Rajnish Ranjan, eFEL: Electrophysiology Feature Extraction Library, Bioinformatics, 2026;, btag328, https://doi.org/10.1093/bioinformatics/btag328
 
