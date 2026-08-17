@@ -61,10 +61,10 @@ Create a git branch with the name of the new eFeature::
 Implementation
 --------------
 All the eFeatures in the eFEL are coded in C++. Thanks to an
-`eFeatures dependency settings file <https://github.com/BlueBrain/eFEL/blob/
+`eFeatures dependency settings file <https://github.com/openbraininstitute/eFEL/blob/
 master/efel/DependencyV5.txt>`_,
 several implementation of the same eFeature name can coexist. E.g.
-`this <https://github.com/BlueBrain/eFEL/blob/master/efel/cppcore/LibV5.cpp>`_
+`this <https://github.com/openbraininstitute/eFEL/blob/master/efel/cppcore/LibV5.cpp>`_
 is the file with the implementations of all 'V5' features.
 You can implement the new eFeature by extending one of the current LibV* files,
 or by creating your own.
@@ -96,12 +96,12 @@ Then, while you are implementing the code in C++ you can easily compare the
 results to the test.
 
 The tests of the individual eFeatures are
-`here <https://github.com/BlueBrain/eFEL/blob/master/tests/
+`here <https://github.com/openbraininstitute/eFEL/blob/master/tests/
 test_basic.py>`_
 .Just add your own test by defining a new function 'test_yourfeature()'.
 
 Some test data is available
-`at this link <https://github.com/BlueBrain/eFEL/tree/master/tests/
+`at this link <https://github.com/openbraininstitute/eFEL/tree/master/tests/
 testdata/basic>`_
 , but you can of course add your own traces.
 
@@ -113,7 +113,7 @@ Add documentation
 -----------------
 Add the documentation of the new eFeature to this file:
 
-https://github.com/BlueBrain/eFEL/blob/master/docs/source/eFeatures.rst
+https://github.com/openbraininstitute/eFEL/blob/master/docs/source/eFeatures.rst
 
 Please provide some pseudo-Python code for the eFeature.
 

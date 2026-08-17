@@ -21,7 +21,7 @@ doc_upload: doc
 	git init . && \
 	git add . && \
 	git commit -m "Updating docs" && \
-	git push "git@github.com:BlueBrain/eFEL.git" master:gh-pages --force && \
+	git push "git@github.com:openbraininstitute/eFEL.git" master:gh-pages --force && \
 	rm -rf .git
 update_version:
 	cd efel && \

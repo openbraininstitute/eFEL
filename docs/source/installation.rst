@@ -24,7 +24,7 @@ Or you could use a `python virtual environment <https://virtualenv.pypa.io>`_::
 
     virtualenv pythonenv
     . ./pythonenv/bin/activate
-    pip install git+git://github.com/BlueBrain/eFEL
+    pip install git+https://github.com/openbraininstitute/eFEL.git
 
 Installing the C++ standalone library
 -------------------------------------

@@ -52,8 +52,8 @@
 <tr>
     <td>Citation</td>
     <td>
-        <a href="https://doi.org/10.5281/zenodo.19604220">
-        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19604220.svg" alt="DOI"/>
+        <a href="https://doi.org/10.1093/bioinformatics/btag328">
+        <img src="https://img.shields.io/badge/DOI-10.1093%2Fbioinformatics%2Fbtag328-blue" alt="DOI"/>
     </a>
     </td>
 </tr>
@@ -62,7 +62,7 @@
 Introduction
 ============
 
-The Electrophys Feature Extraction Library (eFEL) allows neuroscientists
+The Electrophysiology Feature Extraction Library (eFEL) allows neuroscientists
 to automatically extract features from time series data recorded from neurons
 (both in vitro and in silico).
 Examples are the action potential width and amplitude in voltage traces recorded
@@ -78,9 +78,36 @@ library can be found [here](http://efel.readthedocs.io/en/latest/installation.ht
 
 How to cite
 ===========
-When you use this eFEL software for your research, we ask you to cite it (this includes poster presentations) by referring to the "Cite this repository" button at the top of the repository page to get various citation formats, including APA and BibTeX.
+When you use this eFEL software for your research, we ask you to cite it (this includes poster presentations) by referring to the following paper:
 
-For detailed citation information, please refer to the [CITATION.cff](./CITATION.cff) file.
+```text
+Mandge, D., Tuncel, A., Jaquier, A., Kilic, I., Damart, T., Markram, H., Van Geit, W., & Ranjan, R. (2026). eFEL: Electrophysiology feature extraction library. Bioinformatics, 42(6). https://doi.org/10.1093/bioinformatics/btag328
+```
+
+<details>
+<summary><strong>BibTeX</strong></summary>
+
+```bibtex
+@article{10.1093/bioinformatics/btag328,
+    author = {Mandge, Darshan and Tuncel, Anıl and Jaquier, Aurélien and Kilic, Ilkan and Damart, Tanguy and Markram, Henry and Van Geit, Werner and Ranjan, Rajnish},
+    title = {eFEL: electrophysiology feature extraction library},
+    journal = {Bioinformatics},
+    volume = {42},
+    number = {6},
+    pages = {btag328},
+    year = {2026},
+    month = {06},
+    issn = {1367-4811},
+    doi = {10.1093/bioinformatics/btag328},
+    url = {https://doi.org/10.1093/bioinformatics/btag328},
+}
+```
+
+</details>
+
+If you want to cite a particular version of eFEL, you can find the DOIs of all versions at: https://doi.org/10.5281/zenodo.19604220
+
+**Note**: The earlier versions of code can be found in the Blue Brain Project eFEL : https://github.com/BlueBrain/eFEL, Zenodo: https://doi.org/10.5281/zenodo.14222078 and PyPI: https://pypi.org/project/efel/#history repositories.
 
 Requirements
 ============
@@ -101,20 +128,11 @@ The easiest way to install eFEL is to use [pip](https://pip.pypa.io)
 pip install efel
 ```
 
-In case you don't have administrator access this command might fail with a
-permission error. In that case you could install eFEL in your home directory
+Or you could use a [python virtual environment](https://docs.python.org/3/library/venv.html)
 
 ```bash
-pip install efel --user
-```
-
-Or you could use a [python virtual environment](https://virtualenv.pypa.io)
-
-```bash
-virtualenv pythonenv
-. ./pythonenv/bin/activate
-# If you use csh or tcsh, you should use:
-# source ./pythonenv/bin/activate.csh
+python -m venv .venv
+source .venv/bin/activate
 pip install efel
 ```
 
@@ -240,4 +258,4 @@ Lausanne (EPFL), from the Swiss government’s ETH Board of the Swiss Federal In
 
 Copyright (c) 2009-2024 Blue Brain Project/EPFL
 
-Copyright (c) 2025 Open Brain Institute
+Copyright (c) 2025-2026 Open Brain Institute
