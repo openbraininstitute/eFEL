@@ -1,22 +1,16 @@
 all: install
 install: clean
-	python setup.py sdist
-	pip install `ls dist/efel-*.tar.gz`[neo] --upgrade
+	python -m build --sdist
+	python -m pip install dist/efel-*.tar.gz --upgrade
 virtualenv: clean
-	virtualenv pyenv
-	. ./pyenv/bin/activate	
-doc_efeatures:
-	rm -rf docs/build_efeatures && \
-	mkdir docs/build_efeatures && \
-	cd docs/source/tex && \
-	ls -al ../../build_efeatures && \
-	pdflatex -output-directory=../../build_efeatures efeature-documentation.tex
-doc: install doc_efeatures
-	pip install -r requirements_docs.txt
-	cd docs; $(MAKE) clean; $(MAKE) html SPHINXOPTS=-W
+	python -m venv pyenv
+	@echo "Activate the environment with: . pyenv/bin/activate"
+doc: install
+	python -m pip install -r requirements_docs.txt
+	$(MAKE) -C docs clean
+	$(MAKE) -C docs html SPHINXOPTS=-W
 doc_upload: doc
 	cd docs/build/html && \
-	cp ../../build_efeatures/efeature-documentation.pdf . && \
 	touch .nojekyll && \
 	git init . && \
 	git add . && \
@@ -29,11 +23,11 @@ update_version:
 	git add GITHASH.txt && \
 	git add VERSION.txt && \
 	git commit -m 'Updated version number'
-pypi: test
-	pip install twine --upgrade
+pypi:
+	python -m pip install build twine --upgrade
 	rm -rf dist
-	python setup.py sdist bdist
-	twine upload dist/*
+	python -m build
+	python -m twine upload dist/*
 clean:
 	rm -f tests/log/fllog.txt
 	rm -f fllog.txt
@@ -43,10 +37,10 @@ clean:
 	rm -rf dist
 	rm -rf pyenv
 cpp:
-	mkdir -p build_cmake && \
-	cd build_cmake && \
-	cmake .. && \
-	make -j
+	cmake -S . -B build_cmake && \
+	cmake --build build_cmake --parallel
+test:
+	tox -e py3-test
 push: clean install test doc doc_upload
 	git push
 	git push --tags

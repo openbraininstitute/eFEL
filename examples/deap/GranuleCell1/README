@@ -2,14 +2,14 @@ How to run a Jupyter Notebook version
 *************************************
 
 - Install Neuron (with python support)
-- Install DEAP from the BlueBrain github repo: pip install git+git://github.com/BlueBrain/deap/
+- Install DEAP from the BlueBrain github repo: python -m pip install git+https://github.com/BlueBrain/deap.git
 - Compile the mod files using 'nrnivmodl mechanisms'
 - Open notebook using 'jupyter notebook GranuleCellDeap1.ipynb'
 
 How to run a SCOOP parallelized version
 ***************************************
 - Install Neuron (with python support)
-- Install DEAP from the BlueBrain github repo: pip install git+git://github.com/BlueBrain/deap/
+- Install DEAP from the BlueBrain github repo: python -m pip install git+https://github.com/BlueBrain/deap.git
 - Compile the mod files using 'nrnivmodl mechanisms'
 - Make sure the above is working on all the hosts that will participate, then create a
   SCOOP hosts file: http://scoop.readthedocs.org/en/0.7/usage.html#hostfile-format

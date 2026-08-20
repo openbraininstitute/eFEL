@@ -3,49 +3,45 @@ Installation
 
 Requirements
 ------------
-* `Python <https://www.python.org/downloads/>`_
-* `Pip <https://pip.pypa.io>`_ (installed by default in newer versions of Python)
-* `Numpy <http://www.numpy.org>`_ (will be installed automatically by pip)
-* The instruction below are written assuming you have access to a command shell on Linux / UNIX / MacOSX / Cygwin
+* `Python 3.10+ <https://www.python.org/downloads/>`_
+* `Pip <https://pip.pypa.io>`_
+* Runtime dependencies (NumPy, Neo, SciPy, and typing-extensions) are installed automatically by pip
+* A C++17 compiler when pip needs to build from source
+* `CMake 3.12+ <https://cmake.org/download/>`_ and a C++17 compiler for the standalone library
+* The instructions below assume access to a command shell on Linux / UNIX / macOS / Cygwin
 
 Installation using pip
 ----------------------
 
 The easiest way to install eFEL is to use `pip <https://pip.pypa.io>`_::
 
-    pip install efel
+    python -m pip install efel
 
-In case you don't have administrator access this command might fail with a
-permission error. In that case you could install eFEL in your home directory::
+Or create a `Python virtual environment <https://docs.python.org/3/library/venv.html>`_::
 
-    pip install efel --user
+    python -m venv .venv
+    . .venv/bin/activate
+    python -m pip install efel
 
-Or you could use a `python virtual environment <https://virtualenv.pypa.io>`_::
+To install the latest source directly from GitHub::
 
-    virtualenv pythonenv
-    . ./pythonenv/bin/activate
-    pip install git+https://github.com/openbraininstitute/eFEL.git
+    python -m pip install git+https://github.com/openbraininstitute/eFEL.git
 
 Installing the C++ standalone library
 -------------------------------------
 
-If your system doesn't have it, install `CMake <http://www.cmake.org/>`_.
+If your system does not have it, install `CMake <https://cmake.org/download/>`_ 3.12
+or newer and make sure a C++17 compiler is available.
 
-Make a new build directory::
+Configure a new build directory, replacing ``YOURINSTALLDIR`` with the directory
+where you want to install the eFEL library (for example, ``/usr/local``)::
 
-    mkdir build_cmake
+    cmake -S . -B build_cmake -DCMAKE_INSTALL_PREFIX=YOURINSTALLDIR
 
-Configure the build, replace YOURINSTALLDIR with the directory in which you want
-to install the efel library (e.g. /usr/local)::
+Build and install the library::
 
-    cd build_cmake
-    cmake .. -DCMAKE_INSTALL_PREFIX=YOURINSTALLDIR
+    cmake --build build_cmake --parallel
+    cmake --install build_cmake
 
-Run the compilation and installation::
-
-    make install
-
-This will have installed a static and shared library as::
-
-    YOURINSTALLDIR/lib/libefel.a
-    YOURINSTALLDIR/lib/libefel.so
+On Linux, the installed libraries are ``libefel.a`` and ``libefel.so``. On macOS,
+the shared library is named ``libefel.dylib`` instead of ``libefel.so``.

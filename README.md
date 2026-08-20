@@ -74,7 +74,7 @@ the values to the user.
 The core of the library is written in C++, and a Python wrapper is included.
 At the moment we provide a way to automatically compile and install the library
 as a Python module. Instructions on how to compile the eFEL as a standalone C++
-library can be found [here](http://efel.readthedocs.io/en/latest/installation.html#installing-the-c-standalone-library).
+library can be found [here](https://efel.readthedocs.io/en/latest/installation.html#installing-the-c-standalone-library).
 
 How to cite
 ===========
@@ -113,11 +113,10 @@ Requirements
 ============
 
 * [Python 3.10+](https://www.python.org/downloads/)
-* [Pip](https://pip.pypa.io) (installed by default in newer versions of Python)
-* C++ compiler that can be used by pip
-* [Numpy](http://www.numpy.org) (will be installed automatically by pip)
-* The instruction below are written assuming you have access to a command shell
-on Linux / UNIX / MacOSX / Cygwin
+* [Pip](https://pip.pypa.io)
+* A C++17 compiler that can be used by pip when a source build is required
+* Runtime dependencies (NumPy, Neo, SciPy, and typing-extensions) are installed automatically by pip
+* The instructions below assume access to a command shell on Linux / UNIX / macOS / Cygwin
 
 Installation
 ============
@@ -125,21 +124,21 @@ Installation
 The easiest way to install eFEL is to use [pip](https://pip.pypa.io)
 
 ```bash
-pip install efel
+python -m pip install efel
 ```
 
-Or you could use a [python virtual environment](https://docs.python.org/3/library/venv.html)
+Or you could use a [Python virtual environment](https://docs.python.org/3/library/venv.html)
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install efel
+python -m pip install efel
 ```
 
-If you want to install straight from the github repository you can use
+If you want to install straight from the GitHub repository, you can use:
 
 ```bash
-pip install git+git://github.com/openbraininstitute/eFEL
+python -m pip install git+https://github.com/openbraininstitute/eFEL.git
 ```
 
 Quick Start
@@ -245,7 +244,7 @@ Results are in mV.
 
 Full documentation
 ==================
-The full documentation can be found [here](http://efel.readthedocs.io)
+The full documentation can be found [here](https://efel.readthedocs.io)
 
 Funding
 =======

@@ -6,12 +6,16 @@ Developer's Guide
 
 Requirements
 ============
-As a developer you will need some extra requirements
+As a developer you will need:
 
-* To get the latest source code: `Git <https://git-scm.com/>`_
-* To run the tests: `Pytest <https://readthedocs.org/projects/pytest/>`_
-* To build the documentation: `Sphinx <http://sphinx-doc.org/>`_, and pdflatex
-  (e.g. from `Mactex <https://tug.org/mactex/>`_)
+* Python 3.10 or newer: `Python <https://www.python.org/downloads/>`_
+* Git: `Git <https://git-scm.com/>`_
+* Tox: `tox <https://tox.wiki/>`_
+* A C++17 compiler for source builds
+
+The tox environments install the test and documentation dependencies. The
+``docs`` environment builds the HTML documentation; PDF-specific tools such as
+``pdflatex`` are only needed when producing PDF output separately.
 
 Forking and cloning the git repository
 ======================================
@@ -28,18 +32,26 @@ Then a pull request can be created::
 
     https://help.github.com/articles/using-pull-requests/
 
-Makefile
-========
-To simplify certain tasks for developers, a Makefile is provided in the root of
-the eFEL project. This Makefile has the following targets
+Development workflow
+====================
 
-* **install**: installs the eFEL using pip from the working directory
-* **test**: run the installation and all the tests
-* **doc**: build the sphinx and latex documentation
-* **clean**: clean up the build directories
-* **pypi**: run test target and upload to pypi
-* **push**: clean the build, update the version from the git hash, install eFEL,
-  run the tests, build the doc, and push the documentation and source to github
+Install the package and its optional data-format dependencies in an active
+virtual environment::
+
+    python -m pip install -e ".[nwb,h5py]"
+
+Install the packaging and test tooling, then run the test environment::
+
+    python -m pip install build tox
+    tox -e py3-test
+
+Build the documentation with the same workflow used by CI::
+
+    tox -e docs
+
+The root Makefile provides convenience targets for packaging, documentation,
+cleaning build artifacts, and CMake compilation. Use ``make help`` where
+available, and prefer the tox commands above for tests and documentation.
 
 Adding a new eFeature
 =====================
@@ -86,7 +98,7 @@ changed to accomodate the new eFeature
 
 You can confirm everything compiles correctly by executing::
 
-    make test
+    tox -e py3-test
 
 Adding a test
 -------------
@@ -107,7 +119,7 @@ testdata/basic>`_
 
 The easiest way to run the tests is by executing::
 
-    make test
+    tox -e py3-test
 
 Add documentation
 -----------------
@@ -119,7 +131,7 @@ Please provide some pseudo-Python code for the eFeature.
 
 The documentation can be built by::
 
-    make doc
+    tox -e docs
 
 It can be viewed by opening::
 
