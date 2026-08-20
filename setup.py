@@ -98,7 +98,7 @@ setup(
     author="Open Brain Institute",
     maintainer="OBI Maintainer",
     maintainer_email="support@openbraininstitute.org",
-    description="Electrophys Feature Extract Library (eFEL)",
+    description="eFEL: electrophysiology feature extraction library",
     long_description=README,
     long_description_content_type="text/markdown",
     license="LGPLv3",

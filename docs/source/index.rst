@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Electrophys Feature Extraction Library
-======================================
-The Electrophys Feature Extract Library (eFEL) allows neuroscientists to
+eFEL: electrophysiology feature extraction library
+==================================================
+eFEL is an electrophysiology feature extraction library that allows neuroscientists
 automatically extract eFeatures from time series data recorded from neurons
 (both in vitro and in silico). Examples are the action potential width and
 amplitude in voltage traces recorded during whole-cell patch clamp experiments.
