@@ -6,6 +6,7 @@ to hide the lower level API from the user.
 
 
 Copyright (c) 2015, EPFL/Blue Brain Project
+Copyright (c) 2025-2026 Open Brain Institute
 
  This file is part of eFEL <https://github.com/BlueBrain/eFEL>
 

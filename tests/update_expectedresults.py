@@ -4,6 +4,7 @@
 
 """
 Copyright (c) 2015, Blue Brain Project/EPFL
+Copyright (c) 2025-2026 Open Brain Institute
 
 All rights reserved.
 
