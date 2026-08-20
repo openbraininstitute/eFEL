@@ -62,7 +62,7 @@
 Introduction
 ============
 
-The Electrophysiology Feature Extraction Library (eFEL) allows neuroscientists
+eFEL is an electrophysiology feature extraction library that allows neuroscientists
 to automatically extract features from time series data recorded from neurons
 (both in vitro and in silico).
 Examples are the action potential width and amplitude in voltage traces recorded

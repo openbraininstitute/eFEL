@@ -1,4 +1,4 @@
-eFEL - Electrophysiology Feature Extraction Library
+eFEL: electrophysiology feature extraction library
 
 eFEL is licensed under the LGPL, unless noted otherwise, e.g., for external 
 dependencies. See files COPYING and COPYING.lesser for the full license. 
