@@ -114,7 +114,26 @@ html_theme = "obi_sphinx_theme"
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/openbraininstitute/eFEL",
+            "icon": "fa-brands fa-github",
+        },
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/company/openbraininstitute",
+            "icon": "fa-brands fa-linkedin",
+        },
+        {
+            "name": "Website",
+            "url": "https://www.openbraininstitute.org/",
+            "icon": "fa-solid fa-globe",
+        },
+    ],
+    "navbar_align": "left",
+}
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
