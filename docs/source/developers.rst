@@ -98,7 +98,7 @@ changed to accomodate the new eFeature
 
 You can confirm everything compiles correctly by executing::
 
-    tox -e py3-test
+    make test
 
 Adding a test
 -------------
@@ -119,7 +119,7 @@ testdata/basic>`_
 
 The easiest way to run the tests is by executing::
 
-    tox -e py3-test
+    make test
 
 Add documentation
 -----------------
@@ -131,7 +131,7 @@ Please provide some pseudo-Python code for the eFeature.
 
 The documentation can be built by::
 
-    tox -e docs
+    make doc
 
 It can be viewed by opening::
 
