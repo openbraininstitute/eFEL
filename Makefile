@@ -1,5 +1,6 @@
 all: install
 install: clean
+	python -m pip install --upgrade build
 	python -m build --sdist
 	python -m pip install dist/efel-*.tar.gz --upgrade
 virtualenv: clean
